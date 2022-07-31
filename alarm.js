@@ -16,40 +16,40 @@ var activeAlarm= false;
 
 
 function showTime(){                  //showTime is the main function which is written to get the current time and the condition at which the alarm rangs.
-	
-	var now=new Date();
-	currentTime=now.toLocaleTimeString();
-	// console.log(currentTime,alarmElement);
-	
 
-	if(currentTime===alarmElement){ 
-	console.log("hello") ; //when this condition will strike the alarm will start ringing.
-		 sound.play();
-		}
-	
-	timer.textContent=currentTime;
-	setTimeout(showTime,1000);
+var now=new Date();
+currentTime=now.toLocaleTimeString('hi');
+// console.log(currentTime,alarmElement);
+
+
+if(currentTime===alarmElement){
+console.log("hello") ; //when this condition will strike the alarm will start ringing.
+sound.play();
+}
+
+timer.textContent=currentTime;
+setTimeout(showTime,1000);
 }
 showTime();
 
 function addMinSec(id){   //This is the function used to adjust the minutes and seconds for the alarm.
-	var select= id;
-	var min= 59;
+var select= id;
+var min= 59;
 
-	for(i=0;i<=min;i++){
-		select.options[select.options.length]=new Option(i<10?"0"+i:i);
-	}
+for(i=0;i<=min;i++){
+select.options[select.options.length]=new Option(i<10?"0"+i:i);
+}
 
 }
  
 
 function addHour(id){  //This is the function used to adjust the hours for the alarm.
-	var select=id;
-	var min=12;
+var select=id;
+var min=12;
 
-	for(i=0;i<=min;i++){
-		select.options[select.options.length]=new Option(i<10?"0"+i:i);
-	}
+for(i=0;i<=min;i++){
+select.options[select.options.length]=new Option(i<10?"0"+i:i);
+}
 }
 
 addHour(hours);  //calling these functions to set the time .
@@ -59,26 +59,26 @@ addMinSec(seconds);
 
 
 startstop.onclick=function(){
-	if(activeAlarm===false){   //If the alarm is already set then these variables are made disabled.
-		hours.disabled=true;
-		minutes.disabled=true;
-		seconds.disabled=true;
-		ampm.disabled=true;
+if(activeAlarm===false){   //If the alarm is already set then these variables are made disabled.
+hours.disabled=true;
+minutes.disabled=true;
+seconds.disabled=true;
+ampm.disabled=true;
 
 
-		alarmElement=hours.value+":"+minutes.value+":"+seconds.value+" "+ampm.value; //Alarm element is the value at which we want the alarm to start ringing.
-		this.textContent="Clear Alarm";
-		activeAlarm=true;
+alarmElement=Number(hours.value)+":"+minutes.value+":"+seconds.value+" "+ampm.value.toLowerCase(); //Alarm element is the value at which we want the alarm to start ringing.
+this.textContent="Clear Alarm";
+activeAlarm=true;
 
-	}
-	else{
-		hours.disabled=false;
-		minutes.disabled=false;
-		seconds.disabled=false;
-		ampm.disabled=false;
+}
+else{
+hours.disabled=false;
+minutes.disabled=false;
+seconds.disabled=false;
+ampm.disabled=false;
 
-		sound.pause();    //After clearing the alarm the sound must stop.
-		this.textContent="Set Alarm";
-		activeAlarm=false;
-	}
+sound.pause();    //After clearing the alarm the sound must stop.
+this.textContent="Set Alarm";
+activeAlarm=false;
+}
 }

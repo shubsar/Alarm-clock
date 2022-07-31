@@ -1,0 +1,25 @@
+body {
+	background: rgb(107, 104, 104);
+	text-align: center;
+
+}
+h1{
+	font-size: 100px;
+	color: floralwhite;
+}
+button {
+	cursor: pointer;
+	font-size: 20px;
+	font-style: italic;
+
+	padding: 10px 15px;
+	margin-top: 15px;
+	border-radius: 5px;
+	color: rgb(49, 44, 44);
+	background: lightgrey;
+}
+.container select{
+	font-size: 40px;
+	background: lightgrey;
+	border: darkgray;
+}

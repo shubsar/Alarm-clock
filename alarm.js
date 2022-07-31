@@ -4,7 +4,7 @@ var minutes= document.getElementById("minutes");
 var seconds= document.getElementById("seconds");
 var ampm= document.getElementById("ampm");
 var startstop= document.getElementById("startstop");
-console.log("clock");
+
 
 var currentTime;
 var alarmElement;
@@ -19,9 +19,11 @@ function showTime(){                  //showTime is the main function which is w
 	
 	var now=new Date();
 	currentTime=now.toLocaleTimeString();
+	// console.log(currentTime,alarmElement);
 	
 
-	if(currentTime===alarmElement){   //when this condition will strike the alarm will start ringing.
+	if(currentTime===alarmElement){ 
+	console.log("hello") ; //when this condition will strike the alarm will start ringing.
 		 sound.play();
 		}
 	
